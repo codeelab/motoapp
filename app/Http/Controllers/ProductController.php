@@ -1,7 +1,10 @@
 <?php
+
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
+
+
 class ProductController extends Controller
 {
     /**
@@ -14,26 +17,30 @@ class ProductController extends Controller
         $products = Product::paginate();
         return view('products.index', compact('products'));
     }
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
         return view('products.create');
     }
+
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
         $product = Product::create($request->all());
         return redirect()->route('products.edit', $product->id)
-            ->with('info', 'Rol guardado con éxito');
+            ->with('info', 'Producto guardado con éxito');
     }
     /**
      * Display the specified resource.
@@ -41,9 +48,8 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Product $product)
     {
-        $product = Product::find($id);
         return view('products.show', compact('product'));
     }
     /**
@@ -52,9 +58,8 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Product $product)
     {
-        $product = Product::find($id);
         return view('products.edit', compact('product'));
     }
     /**
@@ -64,11 +69,12 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
-        $product = Product::update($request->all());
+        $product->update($request->all());
+
         return redirect()->route('products.edit', $product->id)
-            ->with('info', 'Rol guardado con éxito');
+            ->with('info', 'Producto guardado con éxito');
     }
     /**
      * Remove the specified resource from storage.
@@ -76,9 +82,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        $product = Product::find($id)->delete();
-        return back()->with('info', 'Eliminado correctamente');
+        $product->delete();
+        return back()->with('info', 'Producto Eliminado correctamente');
     }
 }

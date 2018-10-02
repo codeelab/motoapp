@@ -5,14 +5,10 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Producto</div>
+                <div class="panel-heading">404</div>
 
                 <div class="panel-body">                    
-                    {{ Form::open(['route' => 'products.store']) }}
-
-                        @include('products.partials.form')
-                        
-                    {{ Form::close() }}
+                    No existe la página...
                 </div>
             </div>
         </div>

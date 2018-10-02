@@ -6,9 +6,9 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Productos
-                    @can('products.create')
-                    <a href="{{ route('products.create') }}" 
+                    Roles
+                    @can('roles.create')
+                    <a href="{{ route('roles.create') }}" 
                     class="btn btn-sm btn-primary pull-right">
                         Crear
                     </a>
@@ -25,29 +25,29 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($products as $product)
+                            @foreach($roles as $role)
                             <tr>
-                                <td>{{ $product->id }}</td>
-                                <td>{{ $product->name }}</td>
-                                @can('products.show')
+                                <td>{{ $role->id }}</td>
+                                <td>{{ $role->name }}</td>
+                                @can('roles.show')
                                 <td width="10px">
-                                    <a href="{{ route('products.show', $product->id) }}" 
+                                    <a href="{{ route('roles.show', $role->id) }}" 
                                     class="btn btn-sm btn-default">
                                         ver
                                     </a>
                                 </td>
                                 @endcan
-                                @can('products.edit')
+                                @can('roles.edit')
                                 <td width="10px">
-                                    <a href="{{ route('products.edit', $product->id) }}" 
+                                    <a href="{{ route('roles.edit', $role->id) }}" 
                                     class="btn btn-sm btn-default">
                                         editar
                                     </a>
                                 </td>
                                 @endcan
-                                @can('products.destroy')
+                                @can('roles.destroy')
                                 <td width="10px">
-                                    {!! Form::open(['route' => ['products.destroy', $product->id], 
+                                    {!! Form::open(['route' => ['roles.destroy', $role->id], 
                                     'method' => 'DELETE']) !!}
                                         <button class="btn btn-sm btn-danger">
                                             Eliminar
@@ -59,7 +59,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{ $products->render() }}
+                    {{ $roles->render() }}
                 </div>
             </div>
         </div>
