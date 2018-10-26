@@ -1,83 +1,92 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.login')
 
-        <title>Laravel</title>
+@section('content')
+    <!-- Container-fluid starts -->
+    <div class="container-fluid">
+        <div class="row">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+            <div class="col-sm-12">
+                <div class="login-card card-block">
+                   <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}" class="md-float-material">
+                        @csrf
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-            .full-height {
-                height: 100vh;
-            }
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-            .position-ref {
-                position: relative;
-            }
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-            .content {
-                text-align: center;
-            }
-            .title {
-                font-size: 84px;
-            }
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Registro</a>
-                    @endauth
+
+            @if(session()->has('login_error'))
+                <div class="alert alert-success">
+                  {{ session()->get('login_error') }}
                 </div>
             @endif
+                        <div class="text-center">
+                            <img src="{{ asset('images/logo-blue.png') }}" alt="logo">
+                        </div>
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Roles y Permisos
-                </div>
+                        <div class="md-input-wrapper">
+                            <input id="email" type="text" class="md-form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus />
+                            <label>Usuario</label>
 
-                <div class="links">
-                    <a href="https://rimorsoft.com/">Joel Álvarez</a>
+                                @if ($errors->has('email'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                        </div>
+
+
+                        <div class="md-input-wrapper">
+                            <input id="password" type="password" class="md-form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required />
+                            <label>Contraseña</label>
+
+                                @if ($errors->has('password'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-12">
+                            <div class="rkmd-checkbox checkbox-rotate checkbox-ripple m-b-25">
+                                <label class="input-checkbox checkbox-primary">
+                                    <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} />
+                                    <span class="checkbox"></span>
+                                </label>
+                                <div class="captions">{{ __('Recordar') }}</div>
+
+                            </div>
+                                </div>
+                            <div class="col-sm-6 col-xs-12 forgot-phone text-right">
+                                <a href="{{ route('password.request') }}" class="text-right f-w-600">{{ __('Restablecer contraseña?') }}</a>
+                                </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-10 offset-xs-1">
+                                <button type="submit" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20"> {{ __('ACCEDER') }}</button>
+                            </div>
+                        </div>
+                        <!-- <div class="card-footer"> -->
+                        <div class="col-sm-12 col-xs-12">
+                            <div class="row">
+                                <div class="col-md-8 text-left">
+                                    <span class="text-muted">Colegios Motolinia &copy; 1930 - {{ date('Y') }}</span>            
+                                </div>
+                                <div class="col-md-4 text-right">
+                                  <a href="www.codeelab.com">Codeelab</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- </div> -->
+                    </form>
+                    <!-- end of form -->
                 </div>
+                <!-- end of login-card -->
             </div>
+            <!-- end of col-sm-12 -->
         </div>
-    </body>
-</html>
+        <!-- end of row -->
+    </div>
+    <!-- end of container-fluid -->
+@endsection

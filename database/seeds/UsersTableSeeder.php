@@ -12,7 +12,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\User::class, 2)->create();
+        //factory(App\User::class, 2)->create(); //Habilitar para usar el faker
         
         Role::create([
             'name'      => 'Admin',
