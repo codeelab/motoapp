@@ -38,26 +38,17 @@
      <link rel="stylesheet" type="text/css" href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}">
 
 
-     <!-- Style.css -->
-     <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
-     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/waves/waves.min.css') }}">
-     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/notification/css/animate.min.css') }}">
-     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/notification/css/notification.css') }}">
-     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/search/css/component.css') }}">
-     <link rel="stylesheet" type="text/css" href="{{ asset('css/generic-class.min.css') }}">
-     <link rel="stylesheet" type="text/css" href="{{ asset('css/svg-weather.css') }}">
-     <link rel="stylesheet" type="text/css" href="{{ asset('css/menu.css') }}">
-
-     <!-- Responsive.css-->
-     <link rel="stylesheet" type="text/css" href="{{ asset('css/responsive.css') }}">
-     
       <!-- Data Table Css -->
       <link rel="stylesheet"  href="{{ asset('plugins/datatables/css/dataTables.bootstrap4.min.css') }}">
       <link rel="stylesheet"  href="{{ asset('plugins/datatables/css/buttons.dataTables.min.css') }}">
       <link rel="stylesheet"  href="{{ asset('plugins/datatables/css/responsive.bootstrap4.min.css') }}">
       <link rel="stylesheet"  href="{{ asset('plugins/datatables/css/editor.dataTables.min.css') }}">
 
+     <!-- Style.css -->
+     <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
 
+     <!-- Responsive.css-->
+     <link rel="stylesheet" type="text/css" href="{{ asset('css/responsive.css') }}">
 
  </head>
 

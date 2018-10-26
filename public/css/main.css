@@ -4,6 +4,14 @@ Author: Phoenixcoded
 Email: phoenixcoded@gmail.com
 File: main.css
 ============= */
+@import url("../plugins/waves/waves.min.css");
+@import url("../plugins/notification/css/animate.min.css");
+@import url("../plugins/notification/css/notification.css");
+@import url("../plugins/search/css/component.css");
+@import url("generic-class.min.css");
+@import url("svg-weather.css");
+@import url("menu.css");
+
 body {
   font-size: 15px;
   overflow-x: hidden;
