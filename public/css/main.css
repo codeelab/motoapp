@@ -399,6 +399,9 @@ textarea {
 .text-purple {
   color: #9261c6; }
 
+.text-white {
+  color: #ffffff !important; }
+
 /**====== Typography css end ======**/
 /**  =====================
       Tabs css start

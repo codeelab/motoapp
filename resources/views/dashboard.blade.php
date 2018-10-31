@@ -1,12 +1,13 @@
 @extends('layouts.app')
 
+@section('title','Administrador')
 @section('content')
     
     <div class="wrapper">
 
 <!-- Navbar-->
 <header class="main-header-top hidden-print">
-    <a href="{{ url('/') }}" class="logo"><img class="img-fluid able-logo" src="{{ asset('images/logo.png') }}" alt="{{ config('app.name', 'MotoApp') }}"></a>
+    <a href="{{ url('/') }}" class="logo"><img class="img-fluid able-logo" src="{{ asset('images/logo.png') }}" alt="{{ config('app.name') }}"></a>
     <nav class="navbar navbar-static-top">
         <!-- Sidebar toggle button--><a href="#!" data-toggle="offcanvas" class="sidebar-toggle"></a>
         <!-- Navbar Right Menu-->

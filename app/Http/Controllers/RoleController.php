@@ -17,7 +17,7 @@ class RoleController extends Controller
         $this->middleware('permission:roles.destroy')->only('destroy');
 
     }
-
+    
     /**
      * Display a listing of the resource.
      *
