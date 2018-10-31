@@ -25,11 +25,8 @@
     <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
     <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
 
-     <!-- Google font-->
-     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
-
-     <!-- iconfont -->
-     <link rel="stylesheet" type="text/css" href="{{ asset('icon/icofont/css/icofont.css') }}">
+     <!-- Font Awesome-->
+     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.4.2/css/all.css">
 
      <!-- simple line icon -->
      <link rel="stylesheet" type="text/css" href="{{ asset('icon/simple-line-icons/css/simple-line-icons.css') }}">
@@ -37,18 +34,22 @@
      <!-- Required Fremwork -->
      <link rel="stylesheet" type="text/css" href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}">
 
-
-      <!-- Data Table Css -->
-      <link rel="stylesheet"  href="{{ asset('plugins/datatables/css/dataTables.bootstrap4.min.css') }}">
-      <link rel="stylesheet"  href="{{ asset('plugins/datatables/css/buttons.dataTables.min.css') }}">
-      <link rel="stylesheet"  href="{{ asset('plugins/datatables/css/responsive.bootstrap4.min.css') }}">
-      <link rel="stylesheet"  href="{{ asset('plugins/datatables/css/editor.dataTables.min.css') }}">
-
      <!-- Style.css -->
      <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
 
      <!-- Responsive.css-->
      <link rel="stylesheet" type="text/css" href="{{ asset('css/responsive.css') }}">
+
+      <!-- Data Table Css -->
+
+
+
+      <link rel="stylesheet"  href="//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+      <link rel="stylesheet"  href="{{ asset('plugins/datatables/css/buttons.dataTables.min.css') }}">
+      <link rel="stylesheet"  href="{{ asset('plugins/datatables/css/responsive.bootstrap4.min.css') }}">
+      <link rel="stylesheet"  href="{{ asset('plugins/datatables/css/editor.dataTables.min.css') }}">
+
+
 
  </head>
 
@@ -85,14 +86,15 @@
       <script src="{{ asset('plugins/bootstrap/js/bootstrap.min.js') }}"></script>
 
       <!-- data-table js -->
-      <script src="{{ asset('plugins/datatables/js/jquery.dataTables.min.js') }}"></script>
+
+      <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+      <script src="//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
       <script src="{{ asset('plugins/datatables/js/dataTables.buttons.min.js') }}"></script>
       <script src="{{ asset('plugins/datatables/js/jszip.min.js') }}"></script>
       <script src="{{ asset('plugins/datatables/js/pdfmake.min.js') }}"></script>
       <script src="{{ asset('plugins/datatables/js/vfs_fonts.js') }}"></script>
       <script src="{{ asset('plugins/datatables/js/buttons.print.min.js') }}"></script>
       <script src="{{ asset('plugins/datatables/js/buttons.html5.min.js') }}"></script>
-      <script src="{{ asset('plugins/datatables/js/dataTables.bootstrap4.min.js') }}"></script>
       <script src="{{ asset('plugins/datatables/js/dataTables.responsive.min.js') }}"></script>
       <script src="{{ asset('plugins/datatables/js/responsive.bootstrap4.min.js') }}"></script>
 
@@ -107,26 +109,11 @@
       <script src="{{ asset('plugins/classie/classie.js') }}"></script>
 
       <!-- notification -->
-      <script src="{{ asset('plugins/notification/js/bootstrap-growl.min.js') }}"></script>
-
-      <!-- Rickshaw Chart js -->
-      <script src="{{ asset('plugins/d3/d3.js') }}"></script>
-      <script src="{{ asset('plugins/rickshaw/rickshaw.js') }}"></script>
-
-      <!-- Sparkline charts -->
-      <script src="{{ asset('plugins/jquery-sparkline/dist/jquery.sparkline.js') }}"></script>
-
-      <!-- Counter js  -->
-      <script src="{{ asset('plugins/waypoints/jquery.waypoints.min.js') }}"></script>
-      <script src="{{ asset('plugins/countdown/js/jquery.counterup.js') }}"></script>
-
-     <!-- Echart js -->
-     <script src="{{ asset('plugins/charts/echarts/js/echarts-all.js') }}"></script>
+      <script src="{{ asset('plugins/notification/js/bootstrap-growl.min.js') }}"></script>t>
 
       <!-- custom js -->
       <script src="{{ asset('js/data-table-custom.js') }}"></script>
       <script src="{{ asset('js/main.min.js') }}"></script>
-      <script src="{{ asset('pages/dashboard.js') }}"></script>
       <script src="{{ asset('pages/elements.js') }}"></script>
       <script src="{{ asset('js/menu.min.js') }}"></script>
 
