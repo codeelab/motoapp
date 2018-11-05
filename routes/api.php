@@ -20,10 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 */
 
-Route::get('users', function(){
-
- return datatables()
-        ->eloquent(App\User::query())
-        ->toJson();
-
+Route::get('users', function()
+{
+     return Datatables()
+            ->eloquent(App\User::query())
+            ->toJson();
 });

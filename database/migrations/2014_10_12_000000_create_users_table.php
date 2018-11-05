@@ -29,20 +29,16 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            $table->string('a_paterno');
-            $table->string('a_materno');
             $table->string('username')->unique();
             $table->string('email')->unique();
-            $table->string('password',30);
+            $table->string('password');
             $table->boolean('status')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
 
         DB::table('users')->insert([
-            'nombre' => 'Joel',
-            'a_paterno' => 'Álvarez',
-            'a_materno' => 'García',
+            'nombre' => 'Joel Álvarez García',
             'username' => 'joel',
             'email' => 'joel@gmail.com',
             'password' => bcrypt('joel2018'),

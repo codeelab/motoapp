@@ -44,7 +44,7 @@
                         <div class="card-block">
                             <div class="row">
                                 <div class="col-sm-12 table-responsive">
-                                    <table id="UserTable" class="table table-striped table-bordered">
+                                    <table id="UserTabless" class="table table-striped table-bordered">
                                         <thead>
                                         <tr>
                                             <th>#</th>
@@ -54,50 +54,7 @@
                                             <th>Edición</th>
                                         </tr>
                                         </thead>
-                                        <tbody>
-                                            @foreach($users as $user)
-                                            <tr>
-                                                <td>{{ $user->id }}</td>
-                                                <td>{{ $user->nombre }} {{ $user->a_paterno }} {{ $user->a_materno }}</td>
-                                                <td>{{ $user->email }}</td>
-                                                <td>{{ $user->username }}</td>
-                                                <td>
-
-                                                    @can('users.show')
-                                                    
-                                                    <a href="{{ route('users.show', $user->id) }}">
-                                                    <button type="button" class="btn btn-sm btn-default btn-icon waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="" data-original-title="Ver">
-                                                    <i class="fas fa-eye"></i>
-                                                    </button>
-                                                    </a>
-                                                    
-                                                    @endcan
-
-                                                    @can('users.edit')
-
-                                                    <a href="{{ route('users.edit', $user->id) }}">
-                                                    <button type="button" class="btn btn-sm btn-info btn-icon waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edición">
-                                                    <i class="fas fa-edit"></i>
-                                                    </button>
-                                                    </a>
-
-                                                    @endcan
-
-                                                    @can('users.destroy')
-                                                    {!! Form::open(['route' => ['users.destroy', $user->id], 
-                                                        'method' => 'DELETE']) !!}
-                                                    <button type="button" class="btn btn-sm btn-danger btn-icon waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="" data-original-title="Eliminar">
-                                                    <i class="fas fa-trash-alt"></i>
-                                                    </button>
-                                                    {!! Form::close() !!}
-                                                    @endcan
-
-                                                </td>
-                                            </tr>
-                                            @endforeach
-                                        </tbody>
                                     </table>
-                                    {{ $users->render() }}
                                 </div>
                             </div>
                         </div>

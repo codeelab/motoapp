@@ -7,6 +7,14 @@ use App\User;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+      $this->middleware('permission:users.index')->only('index');
+      $this->middleware('permission:users.edit')->only(['edit','update']);
+      $this->middleware('permission:users.show')->only('show');
+      $this->middleware('permission:users.destroy')->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,8 +22,6 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::paginate();
-
         return view('users.index', compact('users'));
     }
 

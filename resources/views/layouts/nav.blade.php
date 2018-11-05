@@ -1,5 +1,3 @@
-
-
 <!-- Navbar-->
 <header class="main-header-top hidden-print">
     <a href="{{ url('/') }}" class="logo"><img class="img-fluid able-logo" src="{{ asset('images/codeelab.png') }}" alt="{{ config('app.name') }}"></a>
@@ -21,7 +19,7 @@
                         <li class="dropdown">
                             <a href="#!" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle drop icon-circle drop-image">
                                 <span><img class="img-circle " src="{{ asset('images/avatar-1.png') }}" style="width:40px;" alt="User Image"></span>
-                                <span><b> {{ Auth::user()->nombre }} {{ Auth::user()->a_paterno }} {{ Auth::user()->a_materno }}</b> <i class=" icofont icofont-simple-down"></i></span>
+                                <span><b> {{ Auth::user()->nombre }}</b> <i class="fas fa-angle-down"></i></span>
 
                             </a>
                             <ul class="dropdown-menu settings-menu">
@@ -55,37 +53,11 @@
             <section class="sidebar" id="sidebar-scroll">
                 
                 <div class="user-panel">
-                    <div class="f-left image"><img src="{{ asset('images/avatar-1.png') }}" alt="{{ Auth::user()->nombre }} {{ Auth::user()->a_paterno }}" class="img-circle"></div>
+                    <div class="f-left image"><img src="{{ asset('images/avatar-1.png') }}" alt="{{ Auth::user()->nombre }}" class="img-circle"></div>
                     <div class="f-left info">
                         <p>{{ Auth::user()->nombre }} {{ Auth::user()->a_paterno }}</p>
-                        <p class="designation">{{ Auth::user()->username }} <i class="icofont icofont-caret-down m-l-5"></i></p>
                     </div>
                 </div>
-                <!-- sidebar profile Menu-->
-                <ul class="nav sidebar-menu extra-profile-list">
-                    <li>
-                        <a class="waves-effect waves-dark" href="profile.html">
-                            <i class="icon-user"></i>
-                            <span class="menu-text">View Profile</span>
-                            <span class="selected"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="waves-effect waves-dark" href="javascript:void(0)">
-                            <i class="icon-settings"></i>
-                            <span class="menu-text">Settings</span>
-                            <span class="selected"></span>
-                        </a>
-                    </li>
-                    <li>
-                       <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            <i class="icon-logout"></i> {{ __('Logout') }}
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                        </form>
-                    </li>
-                </ul>
                 <!-- Sidebar Menu-->
                 <ul class="sidebar-menu">
                     <li class="nav-level">Menú</li>

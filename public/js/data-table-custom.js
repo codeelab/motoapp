@@ -57,37 +57,38 @@ $.extend(true, $.fn.dataTable.defaults, {
 
 $(document).ready(function() {
 
- $("#UserTable").DataTable({
-  responsive: true,
-  processing: true,
-  pagingType: "simple",
-  "info": false,
-  ordering: !1,
-  pageLength: 5,
-  orderCellsTop: !0,
-  language: {
-   url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
-  }
- });
- $("#UserTable thead").on("click", ".form-control", function(e) {
-  e.stopPropagation()
- }), $("#UserTable thead").on("keyup change", ".form-control", function(e) {
-  var a = $(this).attr("data-column"),
-   s = $(this).val();
-  $("#UserTable").DataTable().columns(a).search(s).draw()
- });
-
-  $('#UserTables').DataTable( {
+  $('#UserTabless').DataTable( {
+      responsive: true,
+      processing: true,
       serverSide: true,
+      pagingType: "simple",
+      "info": false,
+      ordering: !1,
+      pageLength: 5,
+      orderCellsTop: !0,
+      language: {
+        url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+      },
       ajax: "api/users",
       columns: [
-        {data: 'id'},
-        {data: 'nombre'},
-        {data: 'a_paterno'},
-        {data: 'a_materno'},
-        {data: 'email'},
-        {data: 'username'},
+        {data: 'id', name: 'id'},
+        {data: 'nombre', name: 'nombre'},
+        {data: 'email', name: 'email'},
+        {data: 'username', name: 'username'},
+        {data: null,  render: function ( data, type, row ) {
+                return "<a href='users/"+data.id+"/show'><button type='button' class='btn btn-sm btn-default btn-icon waves-effect waves-light' data-toggle='tooltip' data-placement='top' title='Ver' data-original-title='Ver'><i class='fas fa-eye'></i></button></a><a href='users/"+data.id+"/edit'><button type='button' class='btn btn-sm btn-info btn-icon waves-effect waves-light' data-toggle='tooltip' data-placement='top' title='Editar' data-original-title='Edición'><i class='fas fa-edit'></i></button></a><a href='users/"+data.id+"/destroy'><button type='button' class='btn btn-sm btn-danger btn-icon waves-effect waves-light' data-toggle='tooltip' data-placement='top' title='Eliminar' data-original-title='Eliminar'><i class='fas fa-trash-alt'></i></button></a>"  }
+        }
       ]
-  } );
+  });
+  $("#UserTabless thead").on("click", ".form-control", function(e) {
+      e.stopPropagation()
+     }), $("#UserTabless thead").on("keyup change", ".form-control", function(e) {
+      var a = $(this).attr("data-column"),
+       s = $(this).val();
+      $("#UserTabless").DataTable().columns(a).search(s).draw()
+  });
+
+
+
 
 });
