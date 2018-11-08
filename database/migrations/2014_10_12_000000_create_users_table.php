@@ -31,6 +31,7 @@ class CreateUsersTable extends Migration
             $table->string('nombre');
             $table->string('username')->unique();
             $table->string('email')->unique();
+            $table->string('foto')->nullable();
             $table->string('password');
             $table->boolean('status')->default(0);
             $table->rememberToken();
@@ -41,6 +42,7 @@ class CreateUsersTable extends Migration
             'nombre' => 'Joel Álvarez García',
             'username' => 'joel',
             'email' => 'joel@gmail.com',
+            'foto' => 'joel.jpg',
             'password' => bcrypt('joel2018'),
             'status' => 0,
             'remember_token' => str_random(10)

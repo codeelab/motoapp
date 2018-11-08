@@ -98,6 +98,10 @@
       <script src="{{ asset('plugins/datatables/js/dataTables.responsive.min.js') }}"></script>
       <script src="{{ asset('plugins/datatables/js/responsive.bootstrap4.min.js') }}"></script>
 
+      <!-- Validator -->
+      <script src="{{ asset('js/validator.min.js') }}"></script>
+      <script src="//unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
       <!-- waves effects.js -->
       <script src="{{ asset('plugins/Waves/waves.min.js') }}"></script>
 
@@ -109,7 +113,7 @@
       <script src="{{ asset('plugins/classie/classie.js') }}"></script>
 
       <!-- notification -->
-      <script src="{{ asset('plugins/notification/js/bootstrap-growl.min.js') }}"></script>t>
+      <script src="{{ asset('plugins/notification/js/bootstrap-growl.min.js') }}"></script>
 
       <!-- custom js -->
       <script src="{{ asset('js/data-table-custom.js') }}"></script>

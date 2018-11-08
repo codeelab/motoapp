@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Caffeinated\Shinobi\Models\Role;
+use Yajra\DataTables\DataTables;
 use App\User;
+
 
 class UserController extends Controller
 {
     public function __construct()
     {
+      $this->middleware('permission:users.create')->only(['create','store']);
       $this->middleware('permission:users.index')->only('index');
       $this->middleware('permission:users.edit')->only(['edit','update']);
       $this->middleware('permission:users.show')->only('show');
@@ -23,6 +26,28 @@ class UserController extends Controller
     public function index()
     {
         return view('users.index', compact('users'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+
+    public function store(Request $request)
+    {
+        $input = $request->all();
+        $input['foto'] = null;
+        if ($request->hasFile('foto')){
+            $input['foto'] = '/upload/usuarios/'.str_slug($input['nombre'], '-').'.'.$request->foto->getClientOriginalExtension();
+            $request->foto->move(public_path('/upload/usuarios/'), $input['foto']);
+        }
+        User::create($input);
+        return response()->json([
+            'success' => true,
+            'message' => 'Usuario Creado'
+        ]);
     }
 
     /**
@@ -41,11 +66,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
         $roles = Role::get();
-
-        return view('users.edit', compact('user','roles'));
+        $user = User::findOrFail($id);
+        return $user;
+        //return view('users.edit', compact('user','roles'));
     }
     /**
      * Update the specified resource in storage.
@@ -55,16 +81,23 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        //Actualizar el usuario
-        $user->update($request->all());
-
-        //Actualizar Roles
-        $user->roles()->sync($request->get('roles'));
-
-        return redirect()->route('users.edit', $user->id)
-            ->with('info', 'Usuario actualizado con éxito');
+        $input = $request->all();
+        $user = User::findOrFail($id);
+        $input['foto'] = $user->foto;
+        if ($request->hasFile('foto')){
+            if (!$user->foto == NULL){
+                unlink(public_path($user->foto));
+            }
+            $input['foto'] = '/upload/usuarios/'.str_slug($input['nombre'], '-').'.'.$request->foto->getClientOriginalExtension();
+            $request->foto->move(public_path('/upload/usuarios/'), $input['foto']);
+        }
+        $user->update($input);
+        return response()->json([
+            'success' => true,
+            'message' => 'Usuario Actualizado'
+        ]);
     }
     /**
      * Remove the specified resource from storage.
@@ -72,9 +105,17 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        $user->delete();
-        return back()->with('info', 'Usuario  Eliminado correctamente');
+        $user = User::findOrFail($id);
+        if (!$user->foto == NULL){
+            unlink(public_path($user->foto));
+        }
+        User::destroy($id);
+        return response()->json([
+            'success' => true,
+            'message' => 'Usuario Eliminado'
+        ]);
     }
+
 }

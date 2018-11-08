@@ -44,10 +44,12 @@
                         <div class="card-block">
                             <div class="row">
                                 <div class="col-sm-12 table-responsive">
-                                    <table id="UserTabless" class="table table-striped table-bordered">
+                                    <a onclick="addForm()" class="btn btn-primary pull-right" style="margin-top: -8px;">Add Contact</a>
+                                    <table id="UserTable" class="table table-striped table-bordered">
                                         <thead>
                                         <tr>
                                             <th>#</th>
+                                            <th>Foto</th>
                                             <th>Nombre</th>
                                             <th>Correo</th>
                                             <th>Usuario</th>
@@ -61,7 +63,7 @@
                     </div>
                     <!-- Basic Table ends -->
 
-
+                @include('form')
             <!-- Row end -->
             <!-- Tables end -->
         </div>
