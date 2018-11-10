@@ -44,7 +44,8 @@
                         <div class="card-block">
                             <div class="row">
                                 <div class="col-sm-12 table-responsive">
-                                    <a onclick="addForm()" class="btn btn-primary pull-right" style="margin-top: -8px;">Add Contact</a>
+                                    <a onclick="addForm()"><button type="button" class="btn btn-sm btn-primary  waves-effect waves-light pull-right" data-toggle="tooltip" data-placement="top" title="Agregar Usuario" data-original-title="Agregar Usuario"><i class="fas fa-user-plus"></i>  </button></a>
+
                                     <table id="UserTable" class="table table-striped table-bordered">
                                         <thead>
                                         <tr>

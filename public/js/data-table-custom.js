@@ -95,6 +95,7 @@ $(document).ready(function() {
         $('.modal-title').text('Agregar Usuario');
       }
 
+
 //EDITA A LOS USUARIOS POR ID DESDE DATATABLES
       function editForm(id) 
       {
@@ -120,16 +121,59 @@ $(document).ready(function() {
       }
 
 //ELIMINA A LOS USUARIOS POR ID DESDE DATATABLES
-      function deleteData(id){
+
+function deleteData(id){
+  var csrf_token = $('meta[name="csrf-token"]').attr('content');
+swal({
+                        title: "Estas seguro?",
+                        text: "Si eliminas el Ticket, se movera a la papelera!",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Sí, Eliminar!",
+                        cancelButtonText: "No, Cancelar!",
+                        closeOnConfirm: false,
+                        closeOnCancel: false },
+                    function (isConfirm) {
+                        if (isConfirm){
+                            $.ajax({
+                            type : "POST",
+                            data : {'_method' : 'DELETE', '_token' : csrf_token},
+                            url: "users" + '/' + id,
+                            }).done(function(data) {
+                            swal({
+                              title: 'Eliminado!',
+                              text: data.message,
+                              type: 'success',
+                              timer: '1500'
+                            }).then(function(){ 
+                                location.reload(); //verificar la opcion de refresco al eliminar
+                            });
+                            }).fail(function(data){
+                            swal({
+                              title: 'Error!',
+                              text: data.message,
+                              type: 'error',
+                              timer: '1500'
+                            })
+                            });
+
+                        }
+                    });
+}
+
+      function deleteDatas(id){
           var csrf_token = $('meta[name="csrf-token"]').attr('content');
           swal({
-              title: 'Are you sure?',
-              text: "You won't be able to revert this!",
-              type: 'warning',
-              showCancelButton: true,
-              cancelButtonColor: '#d33',
-              confirmButtonColor: '#3085d6',
-              confirmButtonText: 'Yes, delete it!'
+                        title: "Estas seguro?",
+                        text: "Si eliminas el Ticket, se movera a la papelera!",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Sí, Eliminar!",
+                        cancelButtonText: "No, Cancelar!",
+                        closeOnConfirm: false,
+                        closeOnCancel: false,
           }).then(function () {
               $.ajax({
                   url: "users" + '/' + id,
@@ -138,7 +182,7 @@ $(document).ready(function() {
                   success : function(data) {
                       table.ajax.reload();
                       swal({
-                          title: 'Success!',
+                          title: 'Eliminado!',
                           text: data.message,
                           type: 'success',
                           timer: '1500'
@@ -156,7 +200,7 @@ $(document).ready(function() {
           });
         }
 
-      $(function(){
+      $(document).ready(function() {
             $('#modal-form form').validator().on('submit', function (e) {
                 if (!e.isDefaultPrevented()){
                     var id = $('#id').val();
@@ -165,7 +209,7 @@ $(document).ready(function() {
                     $.ajax({
                         url : url,
                         type : "POST",
-//                        data : $('#modal-form form').serialize(),
+                       //data : $('#modal-form form').serialize(),
                         data: new FormData($("#modal-form form")[0]),
                         contentType: false,
                         processData: false,
@@ -173,6 +217,7 @@ $(document).ready(function() {
                             $('#modal-form').modal('hide');
                             table.ajax.reload();
                             swal({
+                                icon: "success",
                                 title: 'Success!',
                                 text: data.message,
                                 type: 'success',

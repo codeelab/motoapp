@@ -37,13 +37,13 @@
      <!-- Style.css -->
      <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
 
+      <!-- SweetAlert -->
+      <link rel="stylesheet" type="text/css" href="{{ asset('css/sweetalert.css') }}">
+
      <!-- Responsive.css-->
      <link rel="stylesheet" type="text/css" href="{{ asset('css/responsive.css') }}">
 
       <!-- Data Table Css -->
-
-
-
       <link rel="stylesheet"  href="//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
       <link rel="stylesheet"  href="{{ asset('plugins/datatables/css/buttons.dataTables.min.css') }}">
       <link rel="stylesheet"  href="{{ asset('plugins/datatables/css/responsive.bootstrap4.min.css') }}">
@@ -100,7 +100,9 @@
 
       <!-- Validator -->
       <script src="{{ asset('js/validator.min.js') }}"></script>
-      <script src="//unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+      <!-- SweetAlert -->
+      <script src="{{ asset('js/sweetalert.min.js') }}"></script>
 
       <!-- waves effects.js -->
       <script src="{{ asset('plugins/Waves/waves.min.js') }}"></script>

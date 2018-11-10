@@ -28,7 +28,7 @@ Route::get('users', function()
     return Datatables::of($user)
         ->addColumn('show_photo', function($user){
             if ($user->foto == NULL){
-                    return 'No Image';
+                    return 'No existe';
             }
             return '<img class="rounded-square" width="35" height="35" src="'. url($user->foto) .'" alt="">';
         })
