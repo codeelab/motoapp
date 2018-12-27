@@ -18,7 +18,7 @@
                         <!-- User Menu-->
                         <li class="dropdown">
                             <a href="#!" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle drop icon-circle drop-image">
-                                <span><img class="img-circle " src="{{ asset('images/avatar-1.png') }}" style="width:40px;" alt="User Image"></span>
+                                <span><img class="img-circle " src="{{ Auth::user()->foto }}" style="width:40px;" alt="User Image"></span>
                                 <span><b> {{ Auth::user()->nombre }}</b> <i class="fas fa-angle-down"></i></span>
 
                             </a>
@@ -53,7 +53,7 @@
             <section class="sidebar" id="sidebar-scroll">
                 
                 <div class="user-panel">
-                    <div class="f-left image"><img src="{{ asset('images/avatar-1.png') }}" alt="{{ Auth::user()->nombre }}" class="img-circle"></div>
+                    <div class="f-left image"><img src="{{ Auth::user()->foto }}" alt="{{ Auth::user()->nombre }}" class="img-circle"></div>
                     <div class="f-left info">
                         <p>{{ Auth::user()->nombre }} {{ Auth::user()->a_paterno }}</p>
                     </div>

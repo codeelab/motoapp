@@ -44,10 +44,13 @@
                         <div class="card-block">
                             <div class="row">
                                 <div class="col-sm-12 table-responsive">
-                                    <table id="UserTabless" class="table table-striped table-bordered">
+                                    <a onclick="addForm()"><button type="button" class="btn btn-sm btn-primary  waves-effect waves-light pull-right" data-toggle="tooltip" data-placement="top" title="Agregar Usuario" data-original-title="Agregar Usuario"><i class="fas fa-user-plus"></i>  </button></a>
+
+                                    <table id="UserTable" class="table table-striped table-bordered">
                                         <thead>
                                         <tr>
                                             <th>#</th>
+                                            <th>Foto</th>
                                             <th>Nombre</th>
                                             <th>Correo</th>
                                             <th>Usuario</th>
@@ -61,7 +64,7 @@
                     </div>
                     <!-- Basic Table ends -->
 
-
+                @include('form')
             <!-- Row end -->
             <!-- Tables end -->
         </div>
